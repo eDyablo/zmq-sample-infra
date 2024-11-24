@@ -26,5 +26,8 @@ services:
       context: components/worker
     depends_on:
       - cpp-builder
+    deploy:
+      mode: replicated
+      replicas: 2
     environment:
       SERVICE_PORT: 5050
