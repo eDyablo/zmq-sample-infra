@@ -15,6 +15,18 @@ services:
     image: cpp-builder
     build:
       context: components/cpp-builder
+  monitor:
+    build:
+      args:
+        BUILDER_CONTAINER_IMAGE: python-builder
+      context: components/monitor
+    depends_on:
+      - python-builder
+    environment:
+      SERVICE_PORT: 8080
+      MONITOR_PORT: 9090
+    ports:
+      - 8080
   python-builder:
     image: python-builder
     build:
@@ -30,4 +42,5 @@ services:
       mode: replicated
       replicas: 2
     environment:
+      MONITOR_URL: tcp://monitor:9090
       SERVICE_PORT: 5050
