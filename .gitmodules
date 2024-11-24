@@ -1,0 +1,12 @@
+[submodule "components/console"]
+	path = components/console
+	url = https://github.com/eDyablo/zmq-sample-console.git
+[submodule "components/cpp-builder"]
+	path = components/cpp-builder
+	url = https://github.com/eDyablo/tools-cpp-builder.git
+[submodule "components/python-builder"]
+	path = components/python-builder
+	url = https://github.com/eDyablo/tools-python-builder.git
+[submodule "components/worker"]
+	path = components/worker
+	url = https://github.com/eDyablo/zmq-sample-worker.git

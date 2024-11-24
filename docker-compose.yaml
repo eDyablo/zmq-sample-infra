@@ -1,0 +1,30 @@
+services:
+  console:
+    build:
+      args:
+        BUILDER_CONTAINER_IMAGE: python-builder
+      context: components/console
+    depends_on:
+      - python-builder
+    environment:
+      SERVICE_PORT: 8080
+      WORKER_URL: tcp://worker:5050
+    ports:
+      - 8080
+  cpp-builder:
+    image: cpp-builder
+    build:
+      context: components/cpp-builder
+  python-builder:
+    image: python-builder
+    build:
+      context: components/python-builder
+  worker:
+    build:
+      args:
+        BUILDER_CONTAINER_IMAGE: cpp-builder
+      context: components/worker
+    depends_on:
+      - cpp-builder
+    environment:
+      SERVICE_PORT: 5050
