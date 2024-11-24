@@ -1,6 +1,6 @@
 # Infra
 
-Sample container infrastructure using ZeroMQ.
+Sample container infrastructure.
 
 ## Getting started
 
@@ -21,6 +21,3 @@ docker compose up; docker compose down
 [Rancher Desktop](https://rancherdesktop.io/)
 
 [Lazydocker](https://github.com/jesseduffield/lazydocker)
-
-[Zero MQ](https://zeromq.org/)
-
