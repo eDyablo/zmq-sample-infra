@@ -14,6 +14,24 @@ To launch the applications stack run the following shell script.
 docker compose up; docker compose down
 ```
 
+## Diagram
+
+```mermaid
+C4Context
+  Person(user, "User", "People that interact with the system")
+
+  Container_Boundary(c1, "Cluster") {
+    Container(console, "Console", "python", "Web application representing console")
+    Container(worker, "Worker", "C++", "Service executing task")
+    Container(monitor, "Monitor", "python", "Web application representing monitor")
+  }
+
+  Rel(user, console, "Uses", "https")
+  Rel(user, monitor, "Uses", "https")
+  Rel(console, worker, "Commands", "tcp")
+  Rel(worker, monitor, "Notifies", "tcp")
+```
+
 ## Links
 
 [Docker Desktop](https://www.docker.com/products/docker-desktop/)
